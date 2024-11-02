@@ -1,34 +1,20 @@
-const member = [
-  {
-    name: "male-1",
-    age: "20",
-    gender: "male",
-  },
-  {
-    name: "female-1",
-    age: "20",
-    gender: "female",
-  },
-  {
-    name: "male-2",
-    age: "20",
-    gender: "male",
-  },
-  {
-    name: "female-2",
-    age: "20",
-    gender: "female",
-  },
-  {
-    name: "male-3",
-    age: "20",
-    gender: "male",
-  },
-];
-
-const findOutPerson = () => {
-  const femalePerson = member.map((person) => person?.gender === "female");
-  console.log(femalePerson);
+type Person = {
+  name: string;
+  age: number;
+  gender: string;
 };
 
-console.log(findOutPerson());
+const member: Person[] = [
+  { name: "Oishi", age: 25, gender: "female" },
+  { name: "Mahfuj😎", age: 30, gender: "male" },
+  { name: "Abdullah", age: 28, gender: "male" },
+  { name: "Mahfuja😂", age: 22, gender: "female" },
+];
+
+function getMaleNames(peopleArray: Person[]): string[] {
+  return peopleArray
+    .filter((person) => person.gender === "male")
+    .map((person) => person.name);
+}
+
+console.log(getMaleNames(member));
